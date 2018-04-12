@@ -46,7 +46,9 @@ public class AppConfig {
     @Bean
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
-                .addScripts("schema.sql")
+                //On le met en commentaire parce que SpringBoot cherche automatiquement schema.sql et data.sql
+                //Donc si on le laisse, on va acceder a schema.sql deux fois, et creer la table deux fois.
+                //.addScripts("schema.sql")
                 .build();
     }
 }
